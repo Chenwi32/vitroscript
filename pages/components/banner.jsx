@@ -11,7 +11,7 @@ const Banner = () => {
           <Text mb={5} color="brand.300">
             We are commited to accuracy and speed under tight deadlines
           </Text>
-          <Button bg={"brand.100"} w='50%' fontWeight={800} color="brand.300">
+          <Button bg={"brand.100"} w='50%' fontWeight={800} color="brand.300" zIndex={-1}>
             Get in touch
           </Button>
         </Flex>

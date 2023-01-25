@@ -1,15 +1,29 @@
-import { Container, Flex, Image, Text } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import {
+  Container,
+  Flex,
+  IconButton,
+  Image,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import Link from "next/link";
 
 const Navbar = () => {
+  const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
+
   return (
     <Container
       position={"sticky"}
       top={0}
       maxW={"unset"}
       boxShadow="lg"
-          p={"0.5rem 0"}
-          mb={10}
+      p={"0.5rem 0"}
+      mb={10}
     >
       <Container
         maxW={1200}
@@ -26,6 +40,7 @@ const Navbar = () => {
           justifyContent="space-evenly"
           w={"50%"}
           fontWeight={600}
+          display={isLargerThan700 ? "flex" : "none"}
         >
           <Link href={"/services"}>
             <Text>Services</Text>
@@ -46,6 +61,46 @@ const Navbar = () => {
             <Text>FAQ</Text>
           </Link>
         </Flex>
+
+        {/* Mobile menu */}
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<HamburgerIcon />}
+            bg="inherit"
+            fontSize={"1.5rem"}
+            _hover={{
+              bg: "initial",
+            }}
+            display={isLargerThan700 ? "none" : "block"}
+          />
+          <MenuList w={'98vw'} zIndex={1} boxShadow='lg'>
+            <Link href={"/services"}>
+              <MenuItem>Services</MenuItem>
+                      </Link>
+                      
+            <Link href={"/pricing"}>
+              <MenuItem>Pricing</MenuItem>
+                      </Link>
+                      
+            <Link href={"/templates"}>
+              <MenuItem>Templates</MenuItem>
+                      </Link>
+                      
+            <Link href={"/blog"}>
+              <MenuItem>Blog</MenuItem>
+                      </Link>
+                      
+            <Link href={"/about"}>
+              <MenuItem>About</MenuItem>
+                      </Link>
+                      
+            <Link href={"/faq"}>
+              <MenuItem>FAQ</MenuItem>
+            </Link>
+          </MenuList>
+        </Menu>
       </Container>
     </Container>
   );
