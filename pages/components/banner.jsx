@@ -31,12 +31,12 @@ const Banner = () => {
         maxW={1200}
         m={'auto'}
         flexDirection={isLargerThan700 ? "row" : "column"}
-       p={10}
+       p={isLargerThan700 ? 10 : 2}
       >
         <Flex
           flexDirection={"column"}
           w={isLargerThan700 ? "50%" : "100%"}
-          p='1.5rem '
+          p={isLargerThan700 ? '1.5rem ' : "0.5rem"}
           textAlign={isLargerThan700 ? "initial" : "center"}
           alignItems={isLargerThan700 ? "initial" : "center"}
         >
