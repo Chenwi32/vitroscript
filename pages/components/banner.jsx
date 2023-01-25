@@ -37,6 +37,8 @@ const Banner = () => {
           flexDirection={"column"}
           w={isLargerThan700 ? "50%" : "100%"}
           p='1.5rem '
+          textAlign={isLargerThan700 ? "initial" : "center"}
+          alignItems={isLargerThan700 ? "initial" : "center"}
         >
           <Heading fontFamily={"Andika"} color="brand.200" mb={5}>
             Have an investor-ready Business plan in two days
