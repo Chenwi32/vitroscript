@@ -23,7 +23,7 @@ const Navbar = () => {
       maxW={"unset"}
       boxShadow="lg"
       p={"0.5rem 0"}
-      mb={10}
+      bg="brand.400"
     >
       <Container
         maxW={1200}
@@ -75,27 +75,27 @@ const Navbar = () => {
             }}
             display={isLargerThan700 ? "none" : "block"}
           />
-          <MenuList w={'98vw'} zIndex={1} boxShadow='lg'>
+          <MenuList w={"98vw"} zIndex={'2'} bg='brand.400' boxShadow="lg">
             <Link href={"/services"}>
               <MenuItem>Services</MenuItem>
-                      </Link>
-                      
+            </Link>
+
             <Link href={"/pricing"}>
               <MenuItem>Pricing</MenuItem>
-                      </Link>
-                      
+            </Link>
+
             <Link href={"/templates"}>
               <MenuItem>Templates</MenuItem>
-                      </Link>
-                      
+            </Link>
+
             <Link href={"/blog"}>
               <MenuItem>Blog</MenuItem>
-                      </Link>
-                      
+            </Link>
+
             <Link href={"/about"}>
               <MenuItem>About</MenuItem>
-                      </Link>
-                      
+            </Link>
+
             <Link href={"/faq"}>
               <MenuItem>FAQ</MenuItem>
             </Link>

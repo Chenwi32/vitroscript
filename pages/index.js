@@ -7,12 +7,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Vitroscript</title>
         <meta name="description" content="Vitroscript is a writing service company based in Cameroon" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container>
+      <Container maxW={'unset'} p={0}>
         <Banner/>
       </Container>
 
