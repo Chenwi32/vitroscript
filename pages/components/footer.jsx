@@ -9,19 +9,18 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import {
-  faFacebook,
+ 
   faFacebookF,
   faInstagram,
-  faLinkedin,
+
   faLinkedinIn,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faLocation,
+
   faLocationDot,
-  faMap,
-  faMapLocation,
-  faMapLocationDot,
+ 
+ 
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -94,7 +93,7 @@ const Footer = () => {
           <Text fontFamily={"Poppins"} fontSize="0.8rem">
             &#x00A9; Vitroscript<sup>&#x00AE;</sup> 2022 | All right reserved
           </Text>
-          {/* <Image src="/vitrologo.jpg" w={10} h={10} alt="logo" /> */}
+          <Image src="/vitrologo.jpg" w={10} h={10} alt="logo" />
         </Flex>
       </Container>
     </Container>

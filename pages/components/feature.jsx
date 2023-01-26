@@ -19,12 +19,12 @@ const Feature = () => {
         gap={10}
         justifyContent="space-between"
       >
-       {/*  <Image
+       <Image
           w={500}
           borderRadius="2xl"
           src="/images/vitro.jpeg"
           alt="vitroscript team"
-        /> */}
+        />
         <Box w={isLargerThan700 ? "50%" : "100%"}>
           <Heading
             mb={5}
