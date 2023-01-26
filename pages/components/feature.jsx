@@ -1,8 +1,15 @@
-import { Box, Container, Flex, Heading, Image, Text, useMediaQuery } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 
 const Feature = () => {
-
-    const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
+  const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
 
   return (
     <Container maxW={1200} minH={"40vh"} pb={isLargerThan700 ? 20 : 10}>
@@ -12,7 +19,12 @@ const Feature = () => {
         gap={10}
         justifyContent="space-between"
       >
-        <Image w={500} borderRadius="2xl" src="/images/vitro.jpeg" />
+       {/*  <Image
+          w={500}
+          borderRadius="2xl"
+          src="/images/vitro.jpeg"
+          alt="vitroscript team"
+        /> */}
         <Box w={isLargerThan700 ? "50%" : "100%"}>
           <Heading
             mb={5}
@@ -20,7 +32,7 @@ const Feature = () => {
             fontSize="1.7rem"
             color={"brand.400"}
           >
-            A great idea without a good plan won't go as far.
+            A great idea without a good plan will not go as far.
           </Heading>
 
           <Text fontFamily={"Poppins"} color={"brand.200"} fontSize="1.3rem">

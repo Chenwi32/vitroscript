@@ -26,6 +26,7 @@ const Banner = () => {
       display={"flex"}
       alignItems="center"
       mb={20}
+      p={0}
     >
       <Flex
         maxW={1200}
@@ -57,6 +58,7 @@ const Banner = () => {
             borderRadius={"xl"}
             boxShadow={"2xl"}
             src="/images/vitros.jpg"
+            alt="vitroscript team"
           />
         </Box>
       </Flex>

@@ -4,6 +4,7 @@ import {
   Flex,
   Heading,
   HStack,
+  Image,
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
@@ -29,7 +30,7 @@ const Footer = () => {
 
   return (
     <Container maxW={"unset"} minH={300} bg="brand.301" color={"brand.400"}>
-      <Container maxW={1200} p={10}>
+      <Container maxW={1200} p={isLargerThan700 ? 10 : 5}>
         <Flex
           gap={isLargerThan700 ? 20 : 0}
           flexDirection={isLargerThan700 ? "row" : "column"}
@@ -44,7 +45,7 @@ const Footer = () => {
               Connect with us.
             </Heading>
 
-            <Flex fontSize={"1.7rem"} gap={7}>
+             <Flex fontSize={isLargerThan700? "1.7rem" : '1.3rem'} gap={isLargerThan700? 7 : 4}>
               <a href="https://web.facebook.com/vitroscript1">
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
@@ -70,7 +71,7 @@ const Footer = () => {
               About us
             </Heading>
 
-            <HStack mb={5} fontSize={"1.5rem"}>
+          <HStack mb={5} fontSize={"1.2rem"}>
               <FontAwesomeIcon icon={faLocationDot} />{" "}
               <Heading
                 fontSize={"1.2rem"}
@@ -82,7 +83,6 @@ const Footer = () => {
             </HStack>
 
             <Text fontFamily={"Poppins"} ml={5}>
-            
               Maison Rose Damas, Yaoundé, Cameroon
             </Text>
           </Box>
@@ -90,9 +90,12 @@ const Footer = () => {
 
         <Box h={"1px"} bg="brand.400" mb={10}></Box>
 
-        <Text>
-          &#x00A9; Vitroscript<sup>&#x00AE;</sup> 2022 | All right reserved
-        </Text>
+        <Flex justifyContent={"space-between"} alignItems="center">
+          <Text fontFamily={"Poppins"} fontSize="0.8rem">
+            &#x00A9; Vitroscript<sup>&#x00AE;</sup> 2022 | All right reserved
+          </Text>
+          {/* <Image src="/vitrologo.jpg" w={10} h={10} alt="logo" /> */}
+        </Flex>
       </Container>
     </Container>
   );

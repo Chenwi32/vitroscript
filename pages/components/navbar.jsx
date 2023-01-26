@@ -24,6 +24,7 @@ const Navbar = () => {
       boxShadow="lg"
       p={"0"}
       bg="brand.300"
+      
     >
       <Container
         maxW={1200}
@@ -31,16 +32,23 @@ const Navbar = () => {
         justifyContent={"space-between"}
         alignItems="center"
       >
-        <Link href="/">
-          <Image src="/vitrologo.jpg" w={150} h={100} />
-        </Link>
+        {
+          <Link href="/">
+            <Image
+              src="/vitrologo.jpg"
+              w={150}
+              h={100}
+              alt="vitroscript logo"
+            />
+          </Link>
+        }
 
         <Flex
           fontFamily={"Poppins"}
           justifyContent="space-evenly"
           w={"50%"}
           fontWeight={600}
-          color='brand.400'
+          color="brand.400"
           display={isLargerThan700 ? "flex" : "none"}
         >
           <Link href={"/services"}>
@@ -65,22 +73,24 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <Menu>
-          <MenuButton
-            as={IconButton}
-            aria-label="Options"
-            icon={<HamburgerIcon />}
-            bg="inherit"
-            fontSize={"1.8rem"}
-            color='brand.400'
-            _hover={{
-              bg: "initial",
-            }}
-            _active={{
-              bg: "initial",
-            }}
-            display={isLargerThan700 ? "none" : "block"}
-          />
-          <MenuList w={"98vw"} zIndex={'2'} bg='brand.400' boxShadow="lg">
+          {
+            <MenuButton
+              as={IconButton}
+              aria-label="Options"
+              icon={<HamburgerIcon />}
+              bg="inherit"
+              fontSize={"1.8rem"}
+              color="brand.400"
+              _hover={{
+                bg: "initial",
+              }}
+              _active={{
+                bg: "initial",
+              }}
+              display={isLargerThan700 ? "none" : "block"}
+            />
+          }
+          <MenuList w={"98vw"} bg="brand.400" boxShadow="lg">
             <Link href={"/services"}>
               <MenuItem>Services</MenuItem>
             </Link>

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Container, Heading } from "@chakra-ui/react";
 
 const About = () => {

@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
 
       <Container p={0} maxW={'unset'} backgroundColor='brand.500'>
-        <Banner />
+       <Banner />
         <Feature />
       </ Container>
     </>
