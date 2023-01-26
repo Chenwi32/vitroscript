@@ -25,7 +25,7 @@ const Banner = () => {
       backgroundBlendMode='soft-light'
       display={'flex'}
       alignItems="center"
-      
+      mb={20}
     >
       <Flex
         maxW={1200}
@@ -44,7 +44,7 @@ const Banner = () => {
             Have an investor-ready Business plan in two days
           </Heading>
           <Text mb={5} color="brand.400">
-            We are commited to accuracy and speed under tight deadlines
+            We commit to accuracy and speed under tight deadlines
           </Text>
 
           <Button bg={"brand.100"} w={"50%"} zIndex="-0" color="brand.300">

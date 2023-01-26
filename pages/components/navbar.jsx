@@ -22,8 +22,8 @@ const Navbar = () => {
       top={0}
       maxW={"unset"}
       boxShadow="lg"
-      p={"0.5rem 0"}
-      bg="brand.400"
+      p={"0"}
+      bg="brand.300"
     >
       <Container
         maxW={1200}
@@ -40,6 +40,7 @@ const Navbar = () => {
           justifyContent="space-evenly"
           w={"50%"}
           fontWeight={600}
+          color='brand.400'
           display={isLargerThan700 ? "flex" : "none"}
         >
           <Link href={"/services"}>
@@ -69,8 +70,12 @@ const Navbar = () => {
             aria-label="Options"
             icon={<HamburgerIcon />}
             bg="inherit"
-            fontSize={"1.5rem"}
+            fontSize={"1.8rem"}
+            color='brand.400'
             _hover={{
+              bg: "initial",
+            }}
+            _active={{
               bg: "initial",
             }}
             display={isLargerThan700 ? "none" : "block"}
