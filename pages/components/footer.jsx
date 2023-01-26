@@ -30,7 +30,10 @@ const Footer = () => {
   return (
     <Container maxW={"unset"} minH={300} bg="brand.301" color={"brand.400"}>
       <Container maxW={1200} p={10}>
-        <Flex gap={20}>
+        <Flex
+          gap={isLargerThan700 ? 20 : 0}
+          flexDirection={isLargerThan700 ? "row" : "column"}
+        >
           <Box mb={10}>
             <Heading
               mb={5}
@@ -70,7 +73,6 @@ const Footer = () => {
             <HStack mb={5} fontSize={"1.5rem"}>
               <FontAwesomeIcon icon={faLocationDot} />{" "}
               <Heading
-               
                 fontSize={"1.2rem"}
                 fontFamily="Andika"
                 color={"brand.400"}
@@ -79,7 +81,10 @@ const Footer = () => {
               </Heading>
             </HStack>
 
-            <Text ml={5}> Maison Rose Damas, Yaoundé, Cameroon</Text>
+            <Text fontFamily={"Poppins"} ml={5}>
+            
+              Maison Rose Damas, Yaoundé, Cameroon
+            </Text>
           </Box>
         </Flex>
 

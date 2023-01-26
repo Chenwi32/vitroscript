@@ -22,38 +22,42 @@ const Banner = () => {
       backgroundRepeat="no-repeat"
       backgroundPosition={"center"}
       backgroundSize="cover"
-      backgroundBlendMode='soft-light'
-      display={'flex'}
+      backgroundBlendMode="soft-light"
+      display={"flex"}
       alignItems="center"
       mb={20}
     >
       <Flex
         maxW={1200}
-        m={'auto'}
+        m={"auto"}
         flexDirection={isLargerThan700 ? "row" : "column"}
-       p={isLargerThan700 ? 10 : 2}
+        p={isLargerThan700 ? 10 : 2}
       >
         <Flex
           flexDirection={"column"}
           w={isLargerThan700 ? "50%" : "100%"}
-          p={isLargerThan700 ? '1.5rem ' : "0.5rem"}
+          p={isLargerThan700 ? "1.5rem " : "0.5rem"}
           textAlign={isLargerThan700 ? "initial" : "center"}
           alignItems={isLargerThan700 ? "initial" : "center"}
         >
           <Heading fontFamily={"Andika"} color="brand.200" mb={5}>
             Have an investor-ready Business plan in two days
           </Heading>
-          <Text mb={5} color="brand.400">
+          <Text fontFamily={"Poppins"} mb={5} color="brand.400">
             We commit to accuracy and speed under tight deadlines
           </Text>
 
-          <Button bg={"brand.100"} w={"50%"} zIndex="-0" color="brand.300">
+          <Button bg={"brand.100"} w={"50%"} color="brand.300">
             Get in touch
           </Button>
         </Flex>
 
         <Box display={isLargerThan700 ? "block" : "none"}>
-          <Image borderRadius={'xl'} boxShadow={"2xl"} src="/images/vitros.jpg" />
+          <Image
+            borderRadius={"xl"}
+            boxShadow={"2xl"}
+            src="/images/vitros.jpg"
+          />
         </Box>
       </Flex>
     </Container>
