@@ -1,4 +1,4 @@
-html,
+ html,
 body {
 
  background-color: #000304;
@@ -13,11 +13,8 @@ a {
   text-decoration: none;
 }
 
-* {
+
+*{
   box-sizing: border-box;
 }
 
-
-.teed{
-  color: rgba(0, 0, 0, 0.863);
-}

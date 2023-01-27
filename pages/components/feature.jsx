@@ -1,11 +1,15 @@
+import { ArrowForwardIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Button,
   Container,
   Flex,
   Heading,
+  HStack,
   Image,
   Text,
   useMediaQuery,
+
 } from "@chakra-ui/react";
 
 const Feature = () => {
@@ -19,7 +23,7 @@ const Feature = () => {
         gap={10}
         justifyContent="space-between"
       >
-       <Image
+        <Image
           w={500}
           borderRadius="2xl"
           src="/images/vitro.jpeg"
@@ -30,15 +34,37 @@ const Feature = () => {
             mb={5}
             fontFamily={"Andika"}
             fontSize="1.7rem"
-            color={"brand.400"}
+            color={"brand.300"}
           >
             A great idea without a good plan will not go as far.
           </Heading>
 
-          <Text fontFamily={"Poppins"} color={"brand.200"} fontSize="1.3rem">
+          <Text
+            fontFamily={"Poppins"}
+            mb={10}
+            color={"brand.200"}
+            fontSize="1.3rem"
+          >
             Let us craft your great idea into an executable plan. We create
             great business plans, Project proposals
           </Text>
+
+          <HStack
+            p={3}
+            bg="brand.400"
+            boxShadow={"lg"}
+            justifyContent="space-between"
+            alignItems={"center"}
+            borderRadius='lg'
+            border={'1px'}
+            w='70%'
+          >
+            <Text>Learn more</Text>
+
+            <Button bg={"brand.100"} color="brand.300" >
+             <ArrowForwardIcon/>
+            </Button>
+          </HStack>
         </Box>
       </Flex>
     </Container>

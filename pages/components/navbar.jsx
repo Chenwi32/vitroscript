@@ -32,7 +32,7 @@ const Navbar = () => {
         justifyContent={"space-between"}
         alignItems="center"
       >
-        {
+        
           <Link href="/">
             <Image
               src="/vitrologo.jpg"
@@ -41,7 +41,7 @@ const Navbar = () => {
               alt="vitroscript logo"
             />
           </Link>
-        }
+        
 
         <Flex
           fontFamily={"Poppins"}
@@ -69,7 +69,7 @@ const Navbar = () => {
           <Link href={"/faq"}>
             <Text>FAQ</Text>
           </Link>
-        </Flex>
+        </Flex> 
 
         {/* Mobile menu */}
         <Menu>
