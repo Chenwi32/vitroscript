@@ -44,17 +44,36 @@ const Footer = () => {
               Connect with us.
             </Heading>
 
-             <Flex fontSize={isLargerThan700? "1.7rem" : '1.3rem'} gap={isLargerThan700? 7 : 4}>
-              <a href="https://web.facebook.com/vitroscript1">
+            <Flex
+              fontSize={isLargerThan700 ? "1.7rem" : "1.3rem"}
+              gap={isLargerThan700 ? 7 : 4}
+            >
+              <a
+                href="https://web.facebook.com/vitroscript1"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
-              <a href="https://www.instagram.com/vitroscript/">
+              <a
+                href="https://www.instagram.com/vitroscript/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="https://www.tiktok.com/@vitroscript">
+              <a
+                href="https://www.tiktok.com/@vitroscript"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faTiktok} />
               </a>
-              <a href="https://www.linkedin.com/in/vitroscript/">
+              <a
+                href="https://www.linkedin.com/in/vitroscript/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
             </Flex>
@@ -70,7 +89,7 @@ const Footer = () => {
               About us
             </Heading>
 
-          <HStack mb={5} fontSize={"1.2rem"}>
+            <HStack mb={2} fontSize={"1.2rem"}>
               <FontAwesomeIcon icon={faLocationDot} />{" "}
               <Heading
                 fontSize={"1.2rem"}

@@ -1,5 +1,6 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
+  Button,
   Container,
   Flex,
   IconButton,
@@ -24,7 +25,7 @@ const Navbar = () => {
       boxShadow="lg"
       p={"0"}
       bg="brand.300"
-      
+      zIndex={1}
     >
       <Container
         maxW={1200}
@@ -32,24 +33,19 @@ const Navbar = () => {
         justifyContent={"space-between"}
         alignItems="center"
       >
-        
-          <Link href="/">
-            <Image
-              src="/vitrologo.jpg"
-              w={150}
-              h={100}
-              alt="vitroscript logo"
-            />
-          </Link>
-        
+        <Link href="/">
+          <Image src="/vitrologo.jpg" w={150} h={100} alt="vitroscript logo" />
+        </Link>
 
         <Flex
           fontFamily={"Poppins"}
-          justifyContent="space-evenly"
-          w={"50%"}
+          justifyContent="space-between"
+          alignItems={"center"}
+       
           fontWeight={600}
           color="brand.400"
           display={isLargerThan700 ? "flex" : "none"}
+          gap={5}
         >
           <Link href={"/services"}>
             <Text>Services</Text>
@@ -69,7 +65,19 @@ const Navbar = () => {
           <Link href={"/faq"}>
             <Text>FAQ</Text>
           </Link>
-        </Flex> 
+          <Link href={"/contact"}>
+            <Button
+              bg={"brand.100"}
+              color="brand.300"
+              position={"unset"}
+              _hover={{
+                bg: "brand.200",
+              }}
+            >
+              Contact
+            </Button>
+          </Link>
+        </Flex>
 
         {/* Mobile menu */}
         <Menu>

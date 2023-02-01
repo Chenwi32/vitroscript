@@ -48,7 +48,7 @@ const Banner = () => {
             We commit to accuracy and speed under tight deadlines
           </Text>
 
-          <Button bg={"brand.100"} w={"50%"} color="brand.300">
+          <Button bg={"brand.100"} w={"50%"} color="brand.300" position={'unset'}>
             Get in touch
           </Button>
         </Flex>

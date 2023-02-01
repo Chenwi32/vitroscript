@@ -55,14 +55,21 @@ const Feature = () => {
             boxShadow={"lg"}
             justifyContent="space-between"
             alignItems={"center"}
-            borderRadius='lg'
-            border={'1px'}
-            w='70%'
+            borderRadius="lg"
+            border={"1px"}
+            w="70%"
           >
             <Text>Learn more</Text>
 
-            <Button bg={"brand.100"} color="brand.300" >
-             <ArrowForwardIcon/>
+            <Button
+              position={"unset"}
+              bg={"brand.100"}
+              color="brand.300"
+              _hover={{
+                bg: "brand.200",
+              }}
+            >
+              <ArrowForwardIcon />
             </Button>
           </HStack>
         </Box>

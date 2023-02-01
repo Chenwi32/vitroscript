@@ -2,9 +2,9 @@ import { Container, Heading } from "@chakra-ui/react";
 
 const Pricing = () => {
     return (
-        <Container>
-            <Heading>Here are our prices</Heading>
-        </Container>
+      <Container minH={"70vh"}>
+        <Heading>Here are our prices</Heading>
+      </Container>
     );
 }
 

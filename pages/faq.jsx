@@ -2,9 +2,9 @@ import { Container, Heading } from "@chakra-ui/react";
 
 const Faq = () => {
     return (
-        <Container>
-            <Heading> Frequently asked question</Heading>
-        </Container>
+      <Container minH={"70vh"}>
+        <Heading> Frequently asked question</Heading>
+      </Container>
     );
 }
 
