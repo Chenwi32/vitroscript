@@ -8,6 +8,7 @@ import {
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 const Banner = () => {
   const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
@@ -48,9 +49,19 @@ const Banner = () => {
             We commit to accuracy and speed under tight deadlines
           </Text>
 
-          <Button bg={"brand.100"} w={"50%"} color="brand.300" position={'unset'}>
-            Get in touch
-          </Button>
+          <Link href={"/contact"}>
+            <Button
+              bg={"brand.100"}
+              w={isLargerThan700? "50%" : 'fit-content'}
+              color="brand.300"
+              position={"unset"}
+              _hover={{
+                bg: "brand.200",
+              }}
+            >
+              Get in touch
+            </Button>
+          </Link>
         </Flex>
 
         <Box display={isLargerThan700 ? "block" : "none"}>

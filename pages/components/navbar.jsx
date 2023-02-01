@@ -41,7 +41,6 @@ const Navbar = () => {
           fontFamily={"Poppins"}
           justifyContent="space-between"
           alignItems={"center"}
-       
           fontWeight={600}
           color="brand.400"
           display={isLargerThan700 ? "flex" : "none"}
@@ -65,6 +64,7 @@ const Navbar = () => {
           <Link href={"/faq"}>
             <Text>FAQ</Text>
           </Link>
+
           <Link href={"/contact"}>
             <Button
               bg={"brand.100"}
@@ -81,23 +81,23 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <Menu>
-          {
-            <MenuButton
-              as={IconButton}
-              aria-label="Options"
-              icon={<HamburgerIcon />}
-              bg="inherit"
-              fontSize={"1.8rem"}
-              color="brand.400"
-              _hover={{
-                bg: "initial",
-              }}
-              _active={{
-                bg: "initial",
-              }}
-              display={isLargerThan700 ? "none" : "block"}
-            />
-          }
+
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<HamburgerIcon />}
+            bg="inherit"
+            fontSize={"1.8rem"}
+            color="brand.400"
+            _hover={{
+              bg: "initial",
+            }}
+            _active={{
+              bg: "initial",
+            }}
+            display={isLargerThan700 ? "none" : "block"}
+          />
+
           <MenuList w={"98vw"} bg="brand.400" boxShadow="lg">
             <Link href={"/services"}>
               <MenuItem>Services</MenuItem>
@@ -121,6 +121,10 @@ const Navbar = () => {
 
             <Link href={"/faq"}>
               <MenuItem>FAQ</MenuItem>
+            </Link>
+
+            <Link href={"/contact"}>
+              <MenuItem>Contact</MenuItem>
             </Link>
           </MenuList>
         </Menu>
