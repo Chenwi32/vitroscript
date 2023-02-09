@@ -1,4 +1,4 @@
-import { ArrowForwardIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -13,12 +13,12 @@ import {
 } from "@chakra-ui/react";
 
 const Feature = () => {
-  const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
   return (
-    <Container maxW={1200} minH={"40vh"} pb={isLargerThan700 ? 20 : 10}>
+    <Container maxW={1200} minH={"40vh"} pb={isLargerThan800 ? 20 : 10}>
       <Flex
-        flexDirection={isLargerThan700 ? "row" : "column"}
+        flexDirection={isLargerThan800 ? "row" : "column"}
         alignItems={"center"}
         gap={10}
         justifyContent="space-between"
@@ -29,7 +29,7 @@ const Feature = () => {
           src="/images/vitro.jpeg"
           alt="vitroscript team"
         />
-        <Box w={isLargerThan700 ? "50%" : "100%"}>
+        <Box w={isLargerThan800 ? "50%" : "100%"}>
           <Heading
             mb={5}
             fontFamily={"Andika"}

@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 
 const Banner = () => {
-  const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
   return (
     <Container
@@ -32,15 +32,15 @@ const Banner = () => {
       <Flex
         maxW={1200}
         m={"auto"}
-        flexDirection={isLargerThan700 ? "row" : "column"}
-        p={isLargerThan700 ? 10 : 2}
+        flexDirection={isLargerThan800 ? "row" : "column"}
+        p={isLargerThan800 ? 10 : 2}
       >
         <Flex
           flexDirection={"column"}
-          w={isLargerThan700 ? "50%" : "100%"}
-          p={isLargerThan700 ? "1.5rem " : "0.5rem"}
-          textAlign={isLargerThan700 ? "initial" : "center"}
-          alignItems={isLargerThan700 ? "initial" : "center"}
+          w={isLargerThan800 ? "50%" : "100%"}
+          p={isLargerThan800 ? "1.5rem " : "0.5rem"}
+          textAlign={isLargerThan800 ? "initial" : "center"}
+          alignItems={isLargerThan800 ? "initial" : "center"}
         >
           <Heading fontFamily={"Andika"} color="brand.200" mb={5}>
             Have an investor-ready Business plan in two days
@@ -52,7 +52,7 @@ const Banner = () => {
           <Link href={"/contact"}>
             <Button
               bg={"brand.100"}
-              w={isLargerThan700? "50%" : 'fit-content'}
+              w={isLargerThan800? "50%" : 'fit-content'}
               color="brand.300"
               position={"unset"}
               _hover={{
@@ -64,7 +64,7 @@ const Banner = () => {
           </Link>
         </Flex>
 
-        <Box display={isLargerThan700 ? "block" : "none"}>
+        <Box display={isLargerThan800 ? "block" : "none"}>
           <Image
             borderRadius={"xl"}
             boxShadow={"2xl"}

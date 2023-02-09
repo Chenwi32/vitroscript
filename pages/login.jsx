@@ -96,7 +96,7 @@ const Login = () => {
                       }}
                       zIndex={1}
                     >
-                      <FontAwesomeIcon icon={isVisible ? faEye : faEyeSlash} />
+                      <FontAwesomeIcon icon={isVisible ? faEyeSlash : faEye} />
                     </Icon>
                   </Flex>
                 </Flex>

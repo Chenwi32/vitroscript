@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 
 const Navbar = () => {
-  const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
   return (
     <Container
@@ -43,7 +43,7 @@ const Navbar = () => {
           alignItems={"center"}
           fontWeight={600}
           color="brand.400"
-          display={isLargerThan700 ? "flex" : "none"}
+          display={isLargerThan800 ? "flex" : "none"}
           gap={5}
         >
           <Link href={"/services"}>
@@ -95,7 +95,7 @@ const Navbar = () => {
             _active={{
               bg: "initial",
             }}
-            display={isLargerThan700 ? "none" : "block"}
+            display={isLargerThan800 ? "none" : "block"}
           />
 
           <MenuList w={"98vw"} bg="brand.400" boxShadow="lg">
