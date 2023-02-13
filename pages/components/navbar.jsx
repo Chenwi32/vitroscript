@@ -13,9 +13,13 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { useAuth } from "./authcontexprov";
+
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+
 
   return (
     <Container
@@ -128,6 +132,8 @@ const Navbar = () => {
             </Link>
           </MenuList>
         </Menu>
+
+        
       </Container>
     </Container>
   );

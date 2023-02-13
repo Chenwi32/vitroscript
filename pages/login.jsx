@@ -1,27 +1,46 @@
 import {
   Container,
-  Icon,
   Flex,
   Heading,
   Text,
   useMediaQuery,
-  Button,
-  Input,
+  Image,
 } from "@chakra-ui/react";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+import { auth } from "../firebase";
+import ProtectLogin from "./components/protectlogin";
 
 const Login = () => {
+  const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
 
-    const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
-    const [email, setEmail] = useState();
-    const [password, setPassWord] = useState();
-    const [isVisible, setVisible] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
+  const provider = new GoogleAuthProvider();
 
+  const signInWthGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log({ credential, token, user });
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        alert(` ${errorCode}, ${errorMessage}, ${email}, ${credential} `);
+      });
+  };
 
-    return (
+  return (
+    <ProtectLogin>
       <Container
         maxW={"unset"}
         minH="70vh"
@@ -44,80 +63,25 @@ const Login = () => {
             Log In
           </Heading>
 
-
-          <form action="">
-            <Flex flexDirection={"column"} w={"100%"} alignItems={"center"}>
-              <Flex flexDirection={"column"} alignItems={"flex-start"} mb={5}>
-                <Text color="brand.400">Email:</Text>
-                <Input
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  bg="brand.400"
-                  placeholder="Email"
-                  className={`main_input `}
-                  type="email"
-                  value={email}
-                  required
-                />
-              </Flex>
-
-              <Flex flexDirection={"column"} alignItems={"flex-start"} mb={10}>
-                <Text color="brand.400">Password:</Text>
-
-                <Flex gap={0} p={0} h="fit-content">
-                  <Input
-                    type={isVisible === true ? "text" : "password"}
-                    value={password}
-                    onChange={(e) => {
-                      setPassWord(e.target.value);
-                    }}
-                    bg="brand.400"
-                    placeholder="Password"
-                    className={`main_input `}
-                    required
-                  />
-
-                  <Flex
-                    p={"0.2rem 0.5rem"}
-                    alignItems={"center"}
-                    ml={"-2rem"}
-                    borderTopRightRadius={5}
-                    borderBottomRightRadius={5}
-                  >
-                    <Icon
-                      fontSize={"1rem"}
-                      onClick={() => {
-                        if (isVisible) {
-                          setVisible(false);
-                        } else {
-                          setVisible(true);
-                        }
-                      }}
-                      zIndex={1}
-                    >
-                      <FontAwesomeIcon icon={isVisible ? faEyeSlash : faEye} />
-                    </Icon>
-                  </Flex>
-                </Flex>
-              </Flex>
-
-              <Button
-                bg="brand.100"
-                _hover={{
-                  bg: "brand.200",
-                }}
-                p={5}
-                mb={10}
-                w={"100%"}
-              >
-                Log In
-              </Button>
-            </Flex>
-          </form>
+          <Flex
+            w={"100%"}
+            justifyContent={"center"}
+            cursor="pointer"
+            borderRadius="lg"
+            bg={"brand.400"}
+            onClick={signInWthGoogle}
+            mt={10}
+            gap={3}
+            alignItems={"center"}
+            p={"0.5rem"}
+          >
+            <Image w={7} h={7} alt="google" src="/images/google.png" />
+            <Text>Google</Text>
+          </Flex>
         </Flex>
       </Container>
-    );
-}
+    </ProtectLogin>
+  );
+};
 
 export default Login;

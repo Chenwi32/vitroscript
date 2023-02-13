@@ -1,5 +1,5 @@
 import { Container, Heading } from "@chakra-ui/react";
-import ProtectRoute from "./components/protectRoute";
+import ProtectRoute from "./components/protectroute";
 
 const AdminDash = () => {
     return (

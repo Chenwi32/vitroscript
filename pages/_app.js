@@ -4,6 +4,7 @@ import Layout from "./components/layout";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { AuthContextProvider } from "./components/authcontexprov";
 
 config.autoAddCss = false;
 
@@ -22,12 +23,13 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }) {
   return (
+    <AuthContextProvider>
     <ChakraProvider theme={theme}>
       <Layout>
       <Component {...pageProps} />
     </Layout>
     </ChakraProvider>
-    
+    </AuthContextProvider>
   );
 }
 
