@@ -5,12 +5,14 @@ import {
   Text,
   useMediaQuery,
   Image,
+  Button,
 } from "@chakra-ui/react";
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import ProtectLogin from "../components/protectlogin";
-
 import { auth } from "../firebase";
+
+
 
 const Login = () => {
   const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
@@ -25,7 +27,6 @@ const Login = () => {
         const token = credential?.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log({ credential, token, user });
       })
       .catch((error) => {
         // Handle Errors here.
@@ -63,13 +64,20 @@ const Login = () => {
             Log In
           </Heading>
 
-          <Flex
-            w={"100%"}
+          <form action="">
+              <Button
+            w={200}
             justifyContent={"center"}
             cursor="pointer"
-            borderRadius="lg"
+            borderRadius="3xl"
             bg={"brand.400"}
-            onClick={signInWthGoogle}
+            _hover={{
+              bg: 'brand.400',
+              transform: 'translateY(-2px)'
+            }}
+            onClick={() => {
+              signInWthGoogle()
+            } }
             mt={10}
             gap={3}
             alignItems={"center"}
@@ -77,7 +85,9 @@ const Login = () => {
           >
             <Image w={7} h={7} alt="google" src="/images/google.png" />
             <Text>Google</Text>
-          </Flex>
+          </Button>
+          </form>
+        
         </Flex>
       </Container>
     </ProtectLogin>
