@@ -20,7 +20,6 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
-
   return (
     <Container
       position={"sticky"}
@@ -45,7 +44,6 @@ const Navbar = () => {
           fontFamily={"Poppins"}
           justifyContent="space-between"
           alignItems={"center"}
-          fontWeight={600}
           color="brand.400"
           display={isLargerThan800 ? "flex" : "none"}
           gap={5}
@@ -85,7 +83,6 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <Menu>
-
           <MenuButton
             as={IconButton}
             aria-label="Options"
@@ -132,8 +129,6 @@ const Navbar = () => {
             </Link>
           </MenuList>
         </Menu>
-
-        
       </Container>
     </Container>
   );

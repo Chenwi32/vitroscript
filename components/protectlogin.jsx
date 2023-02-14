@@ -3,8 +3,6 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useAuth } from "./authcontexprov";
 
-
-
 const ProtectLogin = ({ children }) => {
   const router = useRouter();
   const { user } = useAuth();
@@ -24,7 +22,7 @@ const ProtectLogin = ({ children }) => {
         isClosable: true,
       });
     }
-  }, [user]);
+  });
   return <div>{user ? children : null}</div>;
 };
 

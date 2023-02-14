@@ -8,9 +8,9 @@ import {
 } from "@chakra-ui/react";
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import ProtectLogin from "../components/protectlogin";
 
 import { auth } from "../firebase";
-import ProtectLogin from "./components/protectlogin";
 
 const Login = () => {
   const [isLargerThan700] = useMediaQuery("(min-width: 700px)");

@@ -52,7 +52,7 @@ const Banner = () => {
           <Link href={"/contact"}>
             <Button
               bg={"brand.100"}
-              w={isLargerThan800? "50%" : 'fit-content'}
+              w={isLargerThan800 ? "50%" : "fit-content"}
               color="brand.300"
               position={"unset"}
               _hover={{

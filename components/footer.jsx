@@ -9,19 +9,12 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import {
- 
   faFacebookF,
   faInstagram,
-
   faLinkedinIn,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-
-  faLocationDot,
- 
- 
-} from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {

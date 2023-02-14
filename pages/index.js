@@ -1,8 +1,9 @@
-import { Container } from "@chakra-ui/react";
+
 import Head from "next/head";
-import Banner from "./components/banner";
-import Cta from "./components/cta";
-import Feature from "./components/feature";
+import Banner from "../components/banner";
+import Cta from "../components/cta";
+import Feature from "../components/feature";
+
 
 export default function Home() {
   return (

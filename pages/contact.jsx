@@ -1,5 +1,6 @@
 import { Container, Heading, Input, Text, Textarea } from "@chakra-ui/react";
-import CtaForm from "./components/ctaForm";
+import CtaForm from "../components/ctaForm";
+
 
 const Contact = () => {
   return (

@@ -1,12 +1,9 @@
-import { useToast } from "@chakra-ui/react";
-
 import { useAuth } from "./authcontexprov";
-import Notadminnotify from "./notadminnotify";
 
+import Notadminnotify from "./notadminnotify";
 
 const ProtectRoute = ({ children }) => {
   const { user } = useAuth();
-  
 
   return <>{user.uid ? children : <Notadminnotify />}</>;
 };

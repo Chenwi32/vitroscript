@@ -9,7 +9,6 @@ import {
   Image,
   Text,
   useMediaQuery,
-
 } from "@chakra-ui/react";
 
 const Feature = () => {

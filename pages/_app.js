@@ -1,10 +1,10 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "../styles/globals.css";
-import Layout from "./components/layout";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { AuthContextProvider } from "./components/authcontexprov";
+import { AuthContextProvider } from "../components/authcontexprov";
+import LayoutComp from "../components/layout";
 
 config.autoAddCss = false;
 
@@ -24,11 +24,11 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <AuthContextProvider>
-    <ChakraProvider theme={theme}>
-      <Layout>
-      <Component {...pageProps} />
-    </Layout>
-    </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <LayoutComp>
+          <Component {...pageProps} />
+        </LayoutComp>
+      </ChakraProvider>
     </AuthContextProvider>
   );
 }
