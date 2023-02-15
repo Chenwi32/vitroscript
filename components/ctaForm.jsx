@@ -1,9 +1,12 @@
-import { Button, Container, Input, Text, Textarea } from "@chakra-ui/react";
+import { Button, Container, Input, Text, Textarea, useToast } from "@chakra-ui/react";
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../firebase";
 
 const CtaForm = () => {
+
+  const toast = useToast()
+
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
@@ -33,7 +36,15 @@ const CtaForm = () => {
           setButtonValue("Send");
         });
 
-        toast('Sent successfully. Thank you very much. I will get to you within 24 hours')
+        toast({
+          position: "top",
+          title: "Success",
+          description:
+            "Sent successfully. Thank you very much. I will get to you within 24 hours",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
         
       } catch (error) {
         console.log(error);

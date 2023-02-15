@@ -32,6 +32,7 @@ const CreatePost = () => {
       postTitle,
       postHeadline,
       postBody,
+      timestanp
     };
 
     if (
