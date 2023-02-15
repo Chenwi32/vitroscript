@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 import {
   Button,
   Container,
@@ -36,15 +36,15 @@ const Adminnavbar = () => {
   return (
     <Container
       maxW={isLargerThan700 ? 250 : 1200}
-      p={3}
+      p={isLargerThan700 ? 3 : 2}
       minH={isLargerThan700 ? "50vh" : "fit-content"}
       bg={"brand.500"}
       color="brand.400"
     >
       <Flex
-        gap={5 }
+        gap={isLargerThan700 ? 5 : 2}
         justifyContent="space-between"
-        flexDirection={isLargerThan700 ? "column" : "row"}
+        flexDirection={isLargerThan700 ? "column" : 'row-reverse'}
         w={"100%"}
       >
         <Button
@@ -59,37 +59,45 @@ const Adminnavbar = () => {
           Log Out
         </Button>
 
-        <Flex gap={5} flexDirection={isLargerThan700 ? "column" : 'row'} w={"100%"}>
+        <Flex
+          gap={isLargerThan700 ? 5 : 2}
+          flexDirection={isLargerThan700 ? "column" : "row"}
+          w={"100%"}
+        >
           <Link href={"/dashboard/createpost"}>
             <Button
-              bg={"brand.400"}
-              color="brand.300"
+              bg={"unset"}
+              color="brand.400"
               position={"unset"}
               _hover={{
                 bg: "brand.200",
+                color: "brand.300",
               }}
+              p={isLargerThan700 ? 5 : 1}
               display="flex"
               justifyContent={"space-between"}
-              w={isLargerThan700 ? "100%" : 150}
+              w={isLargerThan700 ? "100%" : "fit-content"}
             >
               Create Post
-              {isLargerThan700 ? <ChevronRightIcon /> : <ChevronDownIcon />}
+              {isLargerThan700 ? <ChevronRightIcon /> : <></>}
             </Button>
           </Link>
           <Link href={"/dashboard/inbox"}>
             <Button
-              bg={"brand.400"}
-              color="brand.300"
+              bg={"unset"}
+              color="brand.400"
               position={"unset"}
               _hover={{
                 bg: "brand.200",
+                color: "brand.300",
               }}
               display="flex"
               justifyContent={"space-between"}
-              w={isLargerThan700 ? "100%" : 150}
+              w={isLargerThan700 ? "100%" : "fit-content"}
+              p={isLargerThan700 ? 5 : 1}
             >
               Messages
-              {isLargerThan700 ? <ChevronRightIcon /> : <ChevronDownIcon />}
+              {isLargerThan700 ? <ChevronRightIcon /> : <></>}
             </Button>
           </Link>
         </Flex>
