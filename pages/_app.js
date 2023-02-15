@@ -6,6 +6,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import { AuthContextProvider } from "../components/authcontexprov";
 import LayoutComp from "../components/layout";
 import DashboardLayout from "../components/dashblayout";
+import ProtectRoute from "../components/protectroute";
 
 config.autoAddCss = false;
 
@@ -24,14 +25,18 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps, router }) {
 
-  if (router.pathname.startsWith('/dashboard/')) {
+  if (router.pathname.startsWith('/dashboard')) {
     return (
       <AuthContextProvider>
+      <ProtectRoute>
+        
         <ChakraProvider theme={theme}>
         <DashboardLayout>
           <Component {...pageProps} />
       </DashboardLayout>
       </ChakraProvider>
+      
+      </ProtectRoute>
       </AuthContextProvider>
       
       

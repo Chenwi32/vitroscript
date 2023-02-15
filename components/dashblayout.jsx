@@ -1,4 +1,4 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 import Adminnavbar from "./adminnavbar";
 import Footer from "./footer";
 import Navbar from "./navbar";
@@ -8,10 +8,13 @@ import Navbar from "./navbar";
 }) =>{
   return (
     <>
-      <Navbar/>
-      <Adminnavbar />
+      <Navbar />
+      <Flex>
+         <Adminnavbar />
 
       {children}
+      </Flex>
+     
       <Footer/>
     </>
   );

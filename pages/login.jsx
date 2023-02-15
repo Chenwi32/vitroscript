@@ -14,33 +14,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   GoogleAuthProvider,
-  signInWithCredential,
-  signInWithPopup,
+ 
   signInWithRedirect,
 } from "firebase/auth";
-import { useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { useAuth } from "../components/authcontexprov";
+
 import ProtectLogin from "../components/protectlogin";
 import { auth } from "../firebase";
 
 const Login = () => {
   const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
-
-  const [email, setEmail] = useState();
-  const [password, setPassWord] = useState();
-  const [isVisible, setVisible] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const methods = useForm({ mode: "onBlur" });
-
-   const {
-     register,
-     handleSubmit,
-     formState: { errors },
-   } = methods;
-
-  const { logIn } = useAuth();
 
   const provider = new GoogleAuthProvider();
 

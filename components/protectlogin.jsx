@@ -10,7 +10,7 @@ const ProtectLogin = ({ children }) => {
 
   useEffect(() => {
     if (user.uid) {
-      router.push("/admindash");
+      router.push("/dashboard");
 
       toast({
         position: "top",
