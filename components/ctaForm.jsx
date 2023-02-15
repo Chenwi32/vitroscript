@@ -40,7 +40,7 @@ const CtaForm = () => {
           position: "top",
           title: "Success",
           description:
-            "Sent successfully. Thank you very much. I will get to you within 24 hours",
+            "Sent successfully. Thank you very much. We will get to you within 24 hours",
           status: "success",
           duration: 9000,
           isClosable: true,
@@ -54,13 +54,20 @@ const CtaForm = () => {
     setMessage("");
     setName("");
     setEmail("");
+    setPhone("");
     } else {
       
           setButtonValue('Send')
 
-           toast(
-             'Some field are still empty. Please make sure you fill in all the information required. Thank you.'
-           )
+           toast({
+             position: "top",
+             title: "Error",
+             description:
+               "Some field are still empty. Please make sure you fill in all the information required. Thank you.",
+             status: "error",
+             duration: 9000,
+             isClosable: true,
+           });
       
           
     }

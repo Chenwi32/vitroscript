@@ -1,3 +1,4 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -10,7 +11,7 @@ import {
   useMediaQuery,
   useToast,
 } from "@chakra-ui/react";
-import { collection, getDocs, limit, query } from "firebase/firestore";
+import { collection, getDocs, limit, query, startAfter, startAt } from "firebase/firestore";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
@@ -73,11 +74,55 @@ const Blog = () => {
     );
     setdocumentSnapshots(await getDocs(next));
 
+    const prev = query(
+      collection(db, "blogposts"),
+
+      startAt(lastVisible),
+      limit(1)
+    );
+    setdocumentSnapshots(await getDocs(prev));
+
     documentSnapshots.forEach((snapshot) => {
       newPost.push(snapshot.data());
     });
 
     setPosts(newPost);
+  };
+
+  const getPrevPost = async () => {
+    const prevPost = [];
+    if (documentSnapshots.docs.length <= 0) {
+      toast({
+        position: "top",
+        title: "Info",
+        description:
+          "This is the last post",
+        status: "info",
+        duration: 9000,
+        isClosable: true,
+      });
+
+      return;
+    }
+    const lastVisible =
+      documentSnapshots.docs[documentSnapshots.docs.length - 1];
+
+    // Construct a new query starting at this document,
+    // get the previous post.
+
+    const prev = query(
+      collection(db, "blogposts"),
+
+      startAt(lastVisible),
+      limit(1)
+    );
+    setdocumentSnapshots(await getDocs(prev));
+
+    documentSnapshots.forEach((snapshot) => {
+      prevPost.push(snapshot.data());
+    });
+
+    setPosts(prevPost);
   };
 
   loading = posts.length === 0;
@@ -139,7 +184,26 @@ const Blog = () => {
           ))
         )}
 
-        <HStack p={3} w={"100%"} justifyContent={"flex-end"} mb={10}>
+        <HStack p={5} w={"100%"} justifyContent={"space-between"} mb={10}>
+          <Button
+            bg={"inherit"}
+            border="1px"
+            color={"brand.300"}
+            _hover={{
+              bg: "brand.200",
+            }}
+            onClick={(e) => {
+              if (loading) {
+                e.target.disabled;
+                return;
+              }
+              getPrevPost();
+            }}
+          >
+            <ChevronLeftIcon mr={2} fontWeight={600} fontSize="1.4rem" />
+            See Previous Post
+          </Button>
+
           <Button
             bg={"brand.100"}
             color={"brand.300"}
@@ -148,12 +212,14 @@ const Blog = () => {
             }}
             onClick={(e) => {
               if (loading) {
-                e.target.disable;
+                e.target.disabled;
+                return;
               }
               getNextPost();
             }}
           >
             See Next Post
+            <ChevronRightIcon ml={2} fontWeight={600} fontSize="1.4rem" />
           </Button>
         </HStack>
       </Container>
