@@ -44,7 +44,7 @@ const Adminnavbar = () => {
       <Flex
         gap={isLargerThan700 ? 5 : 2}
         justifyContent="space-between"
-        flexDirection={isLargerThan700 ? "column" : 'row-reverse'}
+        flexDirection={isLargerThan700 ? "column" : "row-reverse"}
         w={"100%"}
       >
         <Button
@@ -66,7 +66,7 @@ const Adminnavbar = () => {
         >
           <Link href={"/dashboard/createpost"}>
             <Button
-              bg={"unset"}
+              bg={isLargerThan700 ? "brand.301" : "unset"}
               color="brand.400"
               position={"unset"}
               _hover={{
@@ -84,7 +84,7 @@ const Adminnavbar = () => {
           </Link>
           <Link href={"/dashboard/inbox"}>
             <Button
-              bg={"unset"}
+              bg={isLargerThan700 ? "brand.301" : "unset"}
               color="brand.400"
               position={"unset"}
               _hover={{

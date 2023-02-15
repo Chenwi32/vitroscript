@@ -23,7 +23,7 @@ const ProtectLogin = ({ children }) => {
       });
     }
   });
-  return <div>{user ? children : null}</div>;
+  return <>{user ? children : null}</>;
 };
 
 export default ProtectLogin;

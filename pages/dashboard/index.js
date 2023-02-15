@@ -5,15 +5,18 @@ const Home = () => {
   const { user } = useAuth();
 
   return (
-      <Container maxW={1200} minH="70vh" mt={10} display='flex' justifyContent={'center'} alignItems="center" >
-          
-              {user.uid ? (
-              <Heading>Hey { user.email}, welcome back!!! </Heading>
+    <Container
+      maxW={1200}
+      minH="70vh"
+      w={'100%'}
+      mt={10}
+      
+    >
+      {user.uid ? (
+        <Heading fontFamily={'Andika'}>Hey {user.email}, welcome back!!! </Heading>
       ) : (
         <Heading>Thank you for visiting</Heading>
       )}
-        
-      
     </Container>
   );
 };
