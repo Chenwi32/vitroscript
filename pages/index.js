@@ -3,6 +3,7 @@ import Head from "next/head";
 import Banner from "../components/banner";
 import Cta from "../components/cta";
 import Feature from "../components/feature";
+import Ourservices from "../components/ourservices";
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <>
         <Banner />
         <Feature />
+        <Ourservices/>
         <Cta />
       </>
     </>

@@ -1,14 +1,76 @@
 import { Button, Container, Input, Text, Textarea } from "@chakra-ui/react";
+import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
+import { db } from "../firebase";
 
 const CtaForm = () => {
+  const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
   const [message, setMessage] = useState();
 
+
+ const [buttonValue, setButtonValue] = useState('Send')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const timestamp = Date.now().toString()
+
+    const myMessages = doc(db, `mymessages/${timestamp}`)
+
+    const data = {
+      name,
+      email,
+      phone,
+      message,
+      timestamp
+    }
+
+        if ( email !== "" || name !== "" || message !== "") {
+      setButtonValue("Sending...");
+      try {
+        await setDoc(myMessages, data).then(() => {
+          setButtonValue("Send");
+        });
+
+        toast('Sent successfully. Thank you very much. I will get to you within 24 hours')
+        
+      } catch (error) {
+        console.log(error);
+      }
+
+
+    setMessage("");
+    setName("");
+    setEmail("");
+    } else {
+      
+          setButtonValue('Send')
+
+           toast(
+             'Some field are still empty. Please make sure you fill in all the information required. Thank you.'
+           )
+      
+          
+    }
+  }
+
   return (
     <Container mt={10} mb={10} p={0}>
-      <Text mb={2}>Email</Text>
+      <Text mb={2}>Name:</Text>
+      
+      <Input
+        value={name}
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
+        type={"text"}
+        mb={5}
+        placeholder="John Doe"
+        required
+      />
+      <Text mb={2}>Email:</Text>
+      
       <Input
         value={email}
         onChange={(e) => {
@@ -20,7 +82,7 @@ const CtaForm = () => {
         required
       />
 
-      <Text mb={2}>Phone number (optional)</Text>
+      <Text mb={2}>Phone number (optional):</Text>
       <Input
         value={phone}
         onChange={(e) => {
@@ -49,11 +111,22 @@ const CtaForm = () => {
         _hover={{
           bg: "brand.200",
         }}
+        onClick={(e) => {
+          handleSubmit(e);
+
+          setButtonValue("Sending...");
+        }}
       >
-        Send
+        {buttonValue}
       </Button>
     </Container>
   );
 };
 
 export default CtaForm;
+
+
+
+
+
+

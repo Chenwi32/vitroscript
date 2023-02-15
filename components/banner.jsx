@@ -46,10 +46,14 @@ const Banner = () => {
             Have an investor-ready Business plan in two days
           </Heading>
           <Text fontFamily={"Poppins"} mb={5} color="brand.400">
-            We commit to accuracy and speed under tight deadlines
+            We commit to accuracy and speed under tight deadlines. Reach us as soon as posible.
           </Text>
 
-          <Link href={"/contact"}>
+          <a
+                href="https://wa.me/+237653955513"
+                target="_blank"
+                rel="noreferrer"
+              >
             <Button
               bg={"brand.100"}
               w={isLargerThan800 ? "50%" : "fit-content"}
@@ -61,7 +65,7 @@ const Banner = () => {
             >
               Get in touch
             </Button>
-          </Link>
+          </a>
         </Flex>
 
         <Box display={isLargerThan800 ? "block" : "none"}>

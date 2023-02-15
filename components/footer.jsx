@@ -82,19 +82,26 @@ const Footer = () => {
               About us
             </Heading>
 
-            <HStack mb={2} fontSize={"1.2rem"}>
+            <HStack mb={5} fontSize={"1.2rem"}>
               <FontAwesomeIcon icon={faLocationDot} />{" "}
               <Heading
                 fontSize={"1.2rem"}
                 fontFamily="Andika"
                 color={"brand.400"}
               >
-                Location
+                Locations
               </Heading>
             </HStack>
 
-            <Text fontFamily={"Poppins"} ml={5}>
+            <Text fontFamily={"Andika"} ml={5} mb={2} fontWeight='600'>
+              Head office:
+            </Text>
+            <Text fontFamily={"Poppins"} ml={5} mb={5}>
               Maison Rose Damas, Yaoundé, Cameroon
+            </Text>
+
+            <Text fontFamily={"Poppins"} ml={5}>
+              Crown College of Management Science and Technology Kissi town Waterloo Western area rural district - Sierra Leone
             </Text>
           </Box>
         </Flex>

@@ -10,7 +10,7 @@ const DashboardLayout = ({
   return (
     <>
       <Navbar />
-      <Container maxW={1200} p={0}>
+      <Container maxW={1400} p={0} >
         <Flex flexDirection={isLargerThan700 ? "row" : "column"}>
         <Adminnavbar />
         {children}
