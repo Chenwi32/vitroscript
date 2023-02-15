@@ -11,7 +11,7 @@ import {
   useMediaQuery,
   useToast,
 } from "@chakra-ui/react";
-import { collection, getDocs, limit, query, startAfter, startAt } from "firebase/firestore";
+import { collection, endBefore, getDocs, limit, query, startAfter,} from "firebase/firestore";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
@@ -74,13 +74,6 @@ const Blog = () => {
     );
     setdocumentSnapshots(await getDocs(next));
 
-    const prev = query(
-      collection(db, "blogposts"),
-
-      startAt(lastVisible),
-      limit(1)
-    );
-    setdocumentSnapshots(await getDocs(prev));
 
     documentSnapshots.forEach((snapshot) => {
       newPost.push(snapshot.data());
@@ -113,7 +106,7 @@ const Blog = () => {
     const prev = query(
       collection(db, "blogposts"),
 
-      startAt(lastVisible),
+      endBefore(lastVisible),
       limit(1)
     );
     setdocumentSnapshots(await getDocs(prev));
@@ -184,7 +177,7 @@ const Blog = () => {
           ))
         )}
 
-        <HStack p={5} w={"100%"} justifyContent={"space-between"} mb={10}>
+        <HStack p={2} w={"100%"} justifyContent={"space-between"} mb={10}>
           <Button
             bg={"inherit"}
             border="1px"
@@ -200,7 +193,7 @@ const Blog = () => {
               getPrevPost();
             }}
           >
-            <ChevronLeftIcon mr={2} fontWeight={600} fontSize="1.4rem" />
+            <ChevronLeftIcon mr={2} fontWeight={600} fontSize="1.3rem" />
             See Previous Post
           </Button>
 
@@ -219,7 +212,7 @@ const Blog = () => {
             }}
           >
             See Next Post
-            <ChevronRightIcon ml={2} fontWeight={600} fontSize="1.4rem" />
+            <ChevronRightIcon ml={2} fontWeight={600} fontSize="1.3rem" />
           </Button>
         </HStack>
       </Container>
