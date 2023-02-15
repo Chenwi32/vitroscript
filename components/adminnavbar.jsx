@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import {
   Button,
   Container,
@@ -11,6 +11,7 @@ import {
   ModalOverlay,
   Text,
   useDisclosure,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useAuth } from "./authcontexprov";
@@ -18,6 +19,8 @@ import { useAuth } from "./authcontexprov";
 const Adminnavbar = () => {
   /* Modal */
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+   const [isLargerThan700] = useMediaQuery("(min-width: 700px)");
 
   const { user, logOut } = useAuth();
 
@@ -31,8 +34,19 @@ const Adminnavbar = () => {
   };
 
   return (
-    <Container maxW={250} p={3} minH="65vh" bg={"brand.500"} color="brand.400">
-      <Flex gap={5} justifyContent="space-between" flexDirection={"column"}>
+    <Container
+      maxW={isLargerThan700 ? 250 : 1200}
+      p={3}
+      minH={isLargerThan700 ? "50vh" : "fit-content"}
+      bg={"brand.500"}
+      color="brand.400"
+    >
+      <Flex
+        gap={5 }
+        justifyContent="space-between"
+        flexDirection={isLargerThan700 ? "column" : "row"}
+        w={"100%"}
+      >
         <Button
           bg={"brand.100"}
           color="brand.300"
@@ -45,7 +59,7 @@ const Adminnavbar = () => {
           Log Out
         </Button>
 
-        <Flex gap={5} flexDirection="column" w={"100%"}>
+        <Flex gap={5} flexDirection={isLargerThan700 ? "column" : 'row'} w={"100%"}>
           <Link href={"/dashboard/createpost"}>
             <Button
               bg={"brand.400"}
@@ -56,10 +70,10 @@ const Adminnavbar = () => {
               }}
               display="flex"
               justifyContent={"space-between"}
-              w="100%"
+              w={isLargerThan700 ? "100%" : 150}
             >
               Create Post
-              <ChevronRightIcon />
+              {isLargerThan700 ? <ChevronRightIcon /> : <ChevronDownIcon />}
             </Button>
           </Link>
           <Link href={"/dashboard/inbox"}>
@@ -72,10 +86,10 @@ const Adminnavbar = () => {
               }}
               display="flex"
               justifyContent={"space-between"}
-              w="100%"
+              w={isLargerThan700 ? "100%" : 150}
             >
               Messages
-              <ChevronRightIcon />
+              {isLargerThan700 ? <ChevronRightIcon /> : <ChevronDownIcon />}
             </Button>
           </Link>
         </Flex>
