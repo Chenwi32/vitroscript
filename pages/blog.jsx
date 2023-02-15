@@ -2,9 +2,11 @@ import {
   Box,
   Button,
   Container,
+  Heading,
   HStack,
   SkeletonCircle,
   SkeletonText,
+  Text,
   useMediaQuery,
   useToast,
 } from "@chakra-ui/react";
@@ -119,7 +121,7 @@ const Blog = () => {
           </>
         ) : (
           posts.map((post) => (
-            <Box mb={10}>
+            <Box mb={10} key={post.timestanp}>
               <Heading
                 w={"fit-content"}
                 borderBottom={"5px solid #05bd33"}
@@ -143,12 +145,11 @@ const Blog = () => {
             color={"brand.300"}
             _hover={{
               bg: "brand.200",
-            
             }}
-                      onClick={(e) => {
-                          if (loading) {
-                    e.target.disable
-                }
+            onClick={(e) => {
+              if (loading) {
+                e.target.disable;
+              }
               getNextPost();
             }}
           >
