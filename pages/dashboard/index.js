@@ -1,11 +1,11 @@
 import { Container, Heading } from "@chakra-ui/react";
 
-const Createpost = () => {
+const Home = () => {
     return (
         <Container>
-            <Heading> Create Blog Post</Heading>
+            <Heading>This is the default page</Heading>
         </Container>
     );
 }
 
-export default Createpost;
+export default Home;

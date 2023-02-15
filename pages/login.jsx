@@ -65,15 +65,6 @@ const Login = () => {
       });
   };
 
-  const onSubmit = async (data) => {
-    try {
-      await logIn(data.email, data.password);
-      router.push("/admindash");
-      console.log(data);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
 
   return (
     <ProtectLogin>
